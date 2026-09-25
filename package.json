@@ -1,0 +1,9 @@
+{
+  "name": "breezer-story-library",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node build.mjs", "test": "node test.mjs", "preview": "python3 -m http.server 4173 --directory dist"},
+  "engines": {"node": ">=20"},
+  "dependencies": {"markdown-it": "^14.1.0"}
+}
