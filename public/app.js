@@ -32,3 +32,18 @@ size?.addEventListener('change', () => {
   reader.dataset.size = size.value;
   try { localStorage.setItem('breezer:size', size.value); } catch { /* Storage is optional. */ }
 });
+
+const copyPrompt = document.querySelector('#copy-prompt');
+copyPrompt?.addEventListener('click', async () => {
+  const prompt = document.querySelector('#story-prompt');
+  const status = document.querySelector('#copy-status');
+  status.textContent = 'Copying prompt…';
+  try {
+    await navigator.clipboard.writeText(prompt.value);
+    status.textContent = 'Copied! Paste this into your existing ChatGPT story chat.';
+  } catch {
+    prompt.focus();
+    prompt.select();
+    status.textContent = 'Automatic copy didn’t work. The prompt is selected: use your phone’s Copy command, then paste it into ChatGPT.';
+  }
+});

@@ -39,3 +39,9 @@ No approved visual comp or external quality-bar card was supplied; the reviewer 
 ## Remaining handoff
 
 Brian can invite Breezer’s GitHub username as a collaborator; she accepts and can use the phone-browser save instructions. Ordinary ChatGPT’s GitHub connection supplies read access, not automatic saves. No historical chat import, Drive sync, custom connector, private-draft storage, or authentication system was created. Actual writing must be selected for public release before it enters this repository.
+
+## Existing-chat prompt follow-up
+
+Added the copyable/downloadable prompt to `/adding-stories/#chat-prompt`, matching the actual plain Markdown + `book.json` format (no YAML frontmatter). It limits work to accessible chat content, preserves prose and alternate drafts, asks about ambiguous ordering/versions, and separates file preparation from public GitHub saving.
+
+`npm test` now also checks clipboard success, denied access, and an unavailable Clipboard API. In BrowserOS Neo, the native copy button copied all 3,904 prompt characters exactly (compared against the source file without logging clipboard content). The guide fits 390px mobile and 1440px desktop without horizontal overflow. The copy result is announced through a status region; failure selects the prompt and explains manual copying.

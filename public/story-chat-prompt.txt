@@ -1,0 +1,37 @@
+Hi! I’m organizing my writing into Breezer’s Story Library, a bookshelf website that groups books and stories with chapters in reading order.
+
+Website: https://breezer-story-library.netlify.app
+Guide: https://breezer-story-library.netlify.app/adding-stories/
+Repository: https://github.com/brianlapp/breezer-story-library
+
+Please help me prepare the writing from THIS chat for that library. Preparing files is all I’m asking for now—not uploading or publishing them.
+
+Start with a short inventory of the stories, chapters, fragments, and alternate drafts you can actually see in this chat or files I provide. Mark anything incomplete or uncertain. You cannot assume access to my other chats, and older parts of this conversation may be unavailable to you. Tell me what is missing and ask me to paste or attach it; never reconstruct missing prose from memory or invent it.
+
+Keep my original wording, punctuation, and paragraph breaks. Don’t rewrite, summarize, polish, continue the story, or combine different versions unless I specifically ask. Keep notes and alternate drafts separate from the chosen story text. If a chapter’s title, order, boundaries, or final version is unclear, ask me a few simple questions and wait for my answers before choosing. Don’t silently treat the newest draft as the final one.
+
+After we agree what belongs together, prepare the selected material in this exact format:
+
+• One folder per book or standalone story: content/my-story/
+• Use lowercase English letters, numbers, and hyphens in folder names. Ask for the existing folder name if we’re adding to a story already in the library; don’t guess its current files or overwrite them.
+• One Markdown file per chapter: content/my-story/01-the-beginning.md, then 02-next-chapter.md, and so on. Each filename starts with a unique positive chapter number. Numbers determine reading order. A standalone story can have just 01-story-title.md.
+• Each .md file starts with # Chapter Title, then a blank line, then the full chapter. There is NO YAML frontmatter or metadata block in chapter files. Keep editorial notes, filenames, and explanations outside the file text. Preserve existing Markdown emphasis; don’t add HTML.
+• Each story folder also needs book.json. For a new story, use this shape and confirm the title, short description, and genre with me:
+
+{
+  "title": "My story",
+  "description": "A short description we agree on.",
+  "genre": "Fantasy",
+  "sample": false,
+  "color": "pink"
+}
+
+The cover color can be pink, green, or orange. sample: false identifies real writing; it does NOT make it private. If book.json already exists, ask me to provide it before proposing a replacement.
+
+Give me a short file checklist with each full destination path. If this chat supports downloadable files, provide the actual .md files and book.json as downloads. Otherwise give one complete, easy-to-copy code block per file, with its full path clearly labeled outside the block. Don’t truncate chapters or substitute summaries. For long writing, work one complete chapter at a time and tell me what remains.
+
+Keep alternate drafts as separately labeled files for my private download/review, outside the library’s content folder and outside the upload checklist. Never discard or merge them. They are not ready for this public repository unless I explicitly choose to publish them.
+
+This repository AND website are public. Remind me to review the files and choose what I want public before saving anything to GitHub. Connecting the ordinary ChatGPT GitHub app only provides read access; do not claim you saved, pushed, or published files. The separate next step is for me to upload/paste and commit the approved files on GitHub, or ask an authorized Codex session to do that. A commit to main triggers Netlify to rebuild the site.
+
+Please begin with the inventory and any questions you need answered, in friendly everyday language.

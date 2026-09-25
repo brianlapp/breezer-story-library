@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -46,5 +47,32 @@ try {
   await rm(path.join(book,'11-empty.md'));
   await writeFile(path.join(book,'bad-name.md'),'# Title\n\nNope.');
   await assert.rejects(loadBooks(content),/01-chapter-name/);
-  console.log('Passed: discovery, chapter ordering, Markdown, escaping, unsafe links, navigation, content validation, and internal links.');
+  const promptText = await readFile('public/story-chat-prompt.txt','utf8');
+  const guide = await readFile(path.join(actual,'adding-stories/index.html'),'utf8');
+  assert.match(guide, /id="copy-prompt"/);
+  assert.match(guide, /role="status"/);
+  const app = await readFile('public/app.js','utf8');
+  for (const outcome of ['success','denied','unavailable']) {
+    let click, copied, selected = false;
+    const status = { textContent: '' };
+    const prompt = { value: promptText, focus() {}, select() { selected = true; } };
+    const elements = { '#copy-prompt': {addEventListener(type,fn) { click = fn; }}, '#story-prompt':prompt, '#copy-status':status };
+    runInNewContext(app, {
+      document: {querySelector: selector => elements[selector] ?? null},
+      navigator: outcome === 'unavailable' ? {} : {clipboard:{async writeText(text) {
+        if (outcome === 'denied') throw new Error('Clipboard denied');
+        copied = text;
+      }}}
+    });
+    await click();
+    if (outcome === 'success') {
+      assert.equal(copied,promptText);
+      assert.match(status.textContent,/^Copied!/);
+      assert.equal(selected,false);
+    } else {
+      assert.equal(selected,true);
+      assert.match(status.textContent,/Automatic copy didn’t work/);
+    }
+  }
+  console.log('Passed: prompt copy success and manual fallback; discovery, chapter ordering, Markdown, escaping, unsafe links, navigation, content validation, and internal links.');
 } finally { await rm(temp,{recursive:true,force:true}); }

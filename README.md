@@ -6,7 +6,7 @@ A funky little home for books, stories, and chapters. Static HTML, one Markdown 
 
 ## Save a chapter from your phone
 
-1. Write with your own ChatGPT account. Ask: **“Give me the complete chapter as Markdown in one code block. Start with # and the chapter title.”** Copy the text inside the block.
+1. For an existing story chat, use the [ready-to-copy catch-up prompt](https://breezer-story-library.netlify.app/adding-stories/#chat-prompt). Paste it into that same chat to inventory available writing, confirm versions/order, and prepare files. For a single new chapter, ask: **“Give me the complete chapter as Markdown in one code block. Start with # and the chapter title.”** Copy the text inside the block.
 2. Sign into GitHub in your phone browser using an account with write access to this repository. Brian needs to invite Breezer’s GitHub username under **Settings → Collaborators**, and she must accept. Her ChatGPT account and GitHub account are separate.
 3. Open `content/your-story/`. Choose **Add file → Create new file**, name it `03-your-chapter.md`, paste the Markdown without the wrapping triple backticks, and **Commit changes** to `main`. To replace an existing chapter, open its file and use the pencil/edit control instead. If mobile hides these controls, request the desktop website from the browser menu.
 4. Netlify rebuilds on a push to `main`. Refresh after the deployment succeeds. Build status appears in Netlify; a rejected/failed build leaves the last successful site live.
