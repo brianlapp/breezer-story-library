@@ -1,5 +1,7 @@
 # Breezer’s bookshelf
 
+[Open the bookshelf](https://breezer-story-library.netlify.app) · [Phone-friendly saving guide](https://breezer-story-library.netlify.app/adding-stories/)
+
 A funky little home for books, stories, and chapters. Static HTML, one Markdown parser, no database. **This repository is public. Its Netlify site is public too.** The included stories are original illustrative samples, not Breezer’s writing. Do not put private drafts here, including in Git history.
 
 ## Save a chapter from your phone
@@ -80,7 +82,7 @@ Visit `http://localhost:4173`. The build emits `dist/`. The runnable check cover
 
 ## Netlify continuous deployment
 
-Import `brianlapp/breezer-story-library` into Brian’s existing Netlify account. Choose `main`, build command `npm test && npm run build`, publish directory `dist`; `netlify.toml` already supplies those settings. Git-backed Netlify deployment must be linked to the repo, not a drag-and-drop deployment.
+Connected site: `breezer-story-library` in Brian’s existing BrandlingLabs account. GitHub repository: `brianlapp/breezer-story-library`; branch: `main`; build: `npm test && npm run build`; publish: `dist`. The connection uses a read-only GitHub deploy key and an active GitHub push webhook, matching Netlify CLI’s continuous-deployment setup. `netlify.toml` supplies the build settings. It is not a drag-and-drop deployment.
 
 The account checked during setup is Brian’s BrandlingLabs Starter account. Its API flags private *organization* repositories as unavailable; that is not evidence that all personal private repositories require payment. Public visibility was explicitly chosen by Brian regardless.
 
